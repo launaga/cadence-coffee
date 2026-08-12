@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cadence — Style guide</title>
+<meta name="description" content="The Cadence design system: colour, typography, text elements, buttons, forms, components and spacing.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .swatch { height: 160px; border-radius: var(--radius); border: 1px solid var(--line); }
+  .spec { border-top: 1px solid var(--line); padding-top: 24px; margin-top: 48px; }
+  .stack > * + * { margin-top: 48px; }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav__inner">
+    <a href="index.html" class="wordmark">CADENCE</a>
+    <div class="nav__links">
+      <a href="index.html">Home</a>
+      <a href="style-guide.html" class="accent">Style&nbsp;guide</a>
+      <a href="#">Cart&nbsp;<span class="accent">(0)</span></a>
+    </div>
+  </div>
+</nav>
+
+<!-- 01 HEADER -->
+<header class="section">
+  <div class="grid">
+    <div style="grid-column:2 / span 8">
+      <span class="eyebrow">Style guide</span>
+      <h1>System</h1>
+    </div>
+  </div>
+</header>
+
+<!-- 02 COLOUR -->
+<section class="section section--alt">
+  <div class="grid">
+    <div style="grid-column:1 / span 12"><span class="eyebrow">02 / Colour</span></div>
+    <div style="grid-column:1 / span 12;display:grid;grid-template-columns:repeat(4,1fr);gap:32px">
+      <div><div class="swatch" style="background:#FBF8F3"></div><p class="mono-sm">--surface<br><span class="muted">#FBF8F3</span></p></div>
+      <div><div class="swatch" style="background:#F2ECE3"></div><p class="mono-sm">--surface-alt<br><span class="muted">#F2ECE3</span></p></div>
+      <div><div class="swatch" style="background:#2A2420"></div><p class="mono-sm">--surface-deep<br><span class="muted">#2A2420</span></p></div>
+      <div><div class="swatch" style="background:#1C1815"></div><p class="mono-sm">--ink<br><span class="muted">#1C1815</span></p></div>
+      <div><div class="swatch" style="background:#6E645B"></div><p class="mono-sm">--ink-muted<br><span class="muted">#6E645B</span></p></div>
+      <div><div class="swatch" style="background:#E2D9CD"></div><p class="mono-sm">--line<br><span class="muted">#E2D9CD</span></p></div>
+      <div><div class="swatch" style="background:#B0472C"></div><p class="mono-sm">--accent<br><span class="muted">#B0472C</span></p></div>
+      <div></div>
+      <div><div class="swatch" style="background:#6B7F5C"></div><p class="mono-sm">--origin-a<br><span class="muted">#6B7F5C</span></p></div>
+      <div><div class="swatch" style="background:#8A6A9E"></div><p class="mono-sm">--origin-b<br><span class="muted">#8A6A9E</span></p></div>
+      <div><div class="swatch" style="background:#C08A3E"></div><p class="mono-sm">--origin-c<br><span class="muted">#C08A3E</span></p></div>
+      <div><div class="swatch" style="background:#4A7B8C"></div><p class="mono-sm">--origin-d<br><span class="muted">#4A7B8C</span></p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 TYPOGRAPHY -->
+<section class="section">
+  <div class="grid">
+    <div style="grid-column:1 / span 12"><span class="eyebrow">03 / Typography</span></div>
+    <div style="grid-column:2 / span 9" class="stack">
+      <div><p class="mono-sm muted">H1 — 3.052rem — display serif 500</p><h1>Coffee, on a weekly rhythm</h1></div>
+      <div><p class="mono-sm muted">H2 — 2.441rem — display serif 500</p><h2>Six coffees, roasted weekly</h2></div>
+      <div><p class="mono-sm muted">H3 — 1.563rem</p><h3>Ethiopia, Yirgacheffe</h3></div>
+      <div><p class="mono-sm muted">H4 — 1.25rem</p><h4>Halo Beriti</h4></div>
+      <div><p class="mono-sm muted">H5 — 1rem</p><h5>Washed process</h5></div>
+      <div><p class="mono-sm muted">H6 — 0.875rem</p><h6>2,050 masl</h6></div>
+      <div><p class="mono-sm muted">Paragraph — 1rem / 1.65</p><p>We charge the drum at 195°C and let the beans fall to a turning point near 92°C. From there the rise is slow and even.</p></div>
+      <div><p class="mono-sm muted">Large — 1.25rem</p><p style="font-size:var(--s-20)">Nothing sits in a warehouse.</p></div>
+      <div><p class="mono-sm muted">Small — 0.875rem</p><p style="font-size:var(--s-14)">Roast date printed on every bag.</p></div>
+      <div class="spec">
+        <p class="mono-sm muted">Display — warm humanist serif, weight 500, H1 and H2 only</p>
+        <p style="font-family:var(--serif);font-size:var(--s-31)">Cadence Coffee</p>
+        <p class="mono-sm muted">Body — neutral sans, weight 400, line height 1.65</p>
+        <p style="font-size:var(--s-20)">Cadence Coffee</p>
+        <p class="mono-sm muted">Utility — monospace, weight 400, all numbers and labels</p>
+        <p class="mono" style="font-size:var(--s-20)">1,850 MASL · 1:16 · 94°C</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 TEXT ELEMENTS -->
+<section class="section section--alt">
+  <div class="grid">
+    <div style="grid-column:1 / span 12"><span class="eyebrow">04 / Text elements</span></div>
+    <div style="grid-column:2 / span 8" class="stack">
+      <div><p class="mono-sm muted">Paragraph</p><p>Every batch is cupped on the Monday after roasting, and anything that misses the profile does not ship.</p></div>
+      <div><p class="mono-sm muted">Inline link</p><p>Read the <a href="#" style="border-bottom:1px solid var(--accent);padding-bottom:4px">pour-over method</a> before you grind.</p></div>
+      <div><p class="mono-sm muted">Unordered list</p>
+        <ul style="list-style:none;padding:0">
+          <li style="position:relative;padding-left:24px"><span style="position:absolute;left:0;top:12px;width:12px;height:1px;background:var(--accent)"></span>Medium grind, flat bed</li>
+          <li style="position:relative;padding-left:24px"><span style="position:absolute;left:0;top:12px;width:12px;height:1px;background:var(--accent)"></span>Water at 94°C</li>
+          <li style="position:relative;padding-left:24px"><span style="position:absolute;left:0;top:12px;width:12px;height:1px;background:var(--accent)"></span>Total time 3:30</li>
+        </ul>
+      </div>
+      <div><p class="mono-sm muted">Ordered list</p>
+        <ol style="list-style:none;padding:0;counter-reset:step">
+          <li style="display:flex;gap:16px;padding:8px 0;border-bottom:1px solid var(--line)"><span class="mono-sm accent">01</span><span style="flex:1">Bloom with 50g</span><span class="mono-sm muted">0:00</span></li>
+          <li style="display:flex;gap:16px;padding:8px 0;border-bottom:1px solid var(--line)"><span class="mono-sm accent">02</span><span style="flex:1">Pour to 250g</span><span class="mono-sm muted">0:30</span></li>
+          <li style="display:flex;gap:16px;padding:8px 0;border-bottom:1px solid var(--line)"><span class="mono-sm accent">03</span><span style="flex:1">Pour to 400g</span><span class="mono-sm muted">1:15</span></li>
+        </ol>
+      </div>
+      <div><p class="mono-sm muted">Blockquote</p>
+        <blockquote style="border-left:2px solid var(--accent);padding:0 0 0 32px;margin:0;font-size:var(--s-20)">Roast date on the bag, not a best-before.</blockquote>
+      </div>
+      <div><p class="mono-sm muted">Figure with figcaption</p>
+        <figure style="margin:0">
+          <div class="imgslot imgslot--219" data-shot="Brew in progress"></div>
+          <figcaption class="mono-sm muted" style="margin-top:12px">The bed should be flat at the finish</figcaption>
+        </figure>
+      </div>
+      <div><p class="mono-sm muted">Inline code · strong · emphasis</p>
+        <p>Use <code class="mono" style="background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:2px 6px;font-size:var(--s-14)">--accent</code> for CTAs, <strong style="font-weight:500">never</strong> for <em>backgrounds</em>.</p>
+      </div>
+      <div><p class="mono-sm muted">Horizontal rule</p><hr></div>
+      <div><p class="mono-sm muted">Data table</p>
+        <table class="dtable">
+          <tr><th>Method</th><th>Ratio</th><th>Grind</th><th>Time</th></tr>
+          <tr><td>Pour-over</td><td>1:16</td><td>Medium</td><td>3:30</td></tr>
+          <tr><td>French press</td><td>1:15</td><td>Coarse</td><td>4:00</td></tr>
+          <tr><td>Espresso</td><td>1:2</td><td>Fine</td><td>0:28</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 BUTTONS -->
+<section class="section">
+  <div class="grid">
+    <div style="grid-column:1 / span 12"><span class="eyebrow">05 / Buttons</span></div>
+    <div style="grid-column:2 / span 9;display:grid;grid-template-columns:repeat(4,1fr);gap:32px">
+      <div><p class="mono-sm muted">Primary — default</p><button class="btn">Add to cart</button></div>
+      <div><p class="mono-sm muted">Primary — hover</p><button class="btn" style="background:transparent;color:var(--accent)">Add to cart</button></div>
+      <div><p class="mono-sm muted">Primary — focus</p><button class="btn" style="outline:2px solid var(--accent);outline-offset:3px">Add to cart</button></div>
+      <div><p class="mono-sm muted">Primary — disabled</p><button class="btn" disabled>Sold out</button></div>
+      <div><p class="mono-sm muted">Secondary — default</p><button class="btn btn--secondary">View origin</button></div>
+      <div><p class="mono-sm muted">Secondary — hover</p><button class="btn btn--secondary" style="background:var(--accent);color:var(--surface)">View origin</button></div>
+      <div><p class="mono-sm muted">Text link — default</p><a href="#" class="link-text">Brew guides →</a></div>
+      <div><p class="mono-sm muted">Text link — hover</p><a href="#" class="link-text" style="color:var(--ink);border-color:var(--ink)">Brew guides →</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 FORM ELEMENTS -->
+<section class="section section--alt">
+  <div class="grid">
+    <div style="grid-column:1 / span 12"><span class="eyebrow">06 / Form elements</span></div>
+    <div style="grid-column:2 / span 4">
+      <p class="mono-sm muted">Default</p>
+      <div class="field"><label for="a1">Name</label><input id="a1" type="text"></div>
+      <div class="field"><label for="a2">Email</label><input id="a2" type="email"></div>
+      <div class="field"><label for="a3">Subject</label><select id="a3"><option>GENERAL</option><option>ORDER</option><option>WHOLESALE</option><option>VISIT</option></select></div>
+      <div class="field"><label for="a4">Message</label><textarea id="a4" rows="5"></textarea></div>
+      <div class="field"><label>Grind</label>
+        <label style="text-transform:none;font-family:var(--sans);font-size:var(--s-16);color:var(--ink);display:flex;gap:8px;align-items:center"><input type="checkbox" style="width:auto;height:auto">Whole bean</label>
+        <label style="text-transform:none;font-family:var(--sans);font-size:var(--s-16);color:var(--ink);display:flex;gap:8px;align-items:center"><input type="radio" name="g" style="width:auto;height:auto">Filter</label>
+      </div>
+    </div>
+    <div style="grid-column:7 / span 4">
+      <p class="mono-sm muted">Focus</p>
+      <div class="field"><label for="b1" style="color:var(--accent)">Name</label><input id="b1" type="text" style="border-bottom:2px solid var(--accent)"></div>
+      <div class="field"><label for="b2" style="color:var(--accent)">Email</label><input id="b2" type="email" style="border-bottom:2px solid var(--accent)"></div>
+      <div class="field"><label for="b3" style="color:var(--accent)">Subject</label><select id="b3" style="border-bottom:2px solid var(--accent)"><option>GENERAL</option></select></div>
+      <div class="field"><label for="b4" style="color:var(--accent)">Message</label><textarea id="b4" rows="5" style="border-bottom:2px solid var(--accent)"></textarea></div>
+      <div class="field"><label style="color:var(--accent)">Error state</label><input type="email" value="not-an-email" style="border-bottom:2px solid var(--accent)"><p class="mono-sm accent" style="margin-top:8px">Enter a valid email address</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 07 COMPONENTS -->
+<section class="section">
+  <div class="grid">
+    <div style="grid-column:1 / span 12"><span class="eyebrow">07 / Components</span></div>
+    <div style="grid-column:2 / span 3">
+      <p class="mono-sm muted">Product card</p>
+      <div class="pgrid" style="grid-template-columns:1fr">
+        <a href="#" class="pcard" style="border-right:0;border-bottom:0">
+          <div class="imgslot" data-shot="Bag"></div>
+          <p class="mono-sm muted" style="margin-top:16px"><span class="dot" style="--hue:var(--origin-d)"></span>Kenya</p>
+          <p class="pcard__name">Gatomboya</p>
+          <p class="pcard__price">£21.00</p>
+        </a>
+      </div>
+    </div>
+    <div style="grid-column:6 / span 4">
+      <p class="mono-sm muted">Tasting chart</p>
+      <div class="chart">
+        <div class="chart__row"><span class="chart__label">Acidity</span><div class="chart__track"><div class="chart__bar" style="--v:5;--hue:var(--origin-d)"></div></div><span class="chart__val">5</span></div>
+        <div class="chart__row"><span class="chart__label">Body</span><div class="chart__track"><div class="chart__bar" style="--v:4;--hue:var(--origin-d)"></div></div><span class="chart__val">4</span></div>
+        <div class="chart__row"><span class="chart__label">Sweetness</span><div class="chart__track"><div class="chart__bar" style="--v:3;--hue:var(--origin-d)"></div></div><span class="chart__val">3</span></div>
+        <div class="chart__row"><span class="chart__label">Bitterness</span><div class="chart__track"><div class="chart__bar" style="--v:2;--hue:var(--origin-d)"></div></div><span class="chart__val">2</span></div>
+      </div>
+      <p class="mono-sm muted" style="margin-top:48px">Accordion item</p>
+      <details style="border-top:1px solid var(--line);padding:16px 0">
+        <summary class="mono-sm" style="cursor:pointer;list-style:none;display:flex;justify-content:space-between">Origin <span class="accent">+</span></summary>
+        <table class="dtable" style="margin-top:16px">
+          <tr><th>Altitude</th><td>1,850 masl</td></tr>
+          <tr><th>Varietal</th><td>SL28, SL34</td></tr>
+          <tr><th>Process</th><td>Washed</td></tr>
+        </table>
+      </details>
+      <p class="mono-sm muted" style="margin-top:48px">Mono eyebrow</p>
+      <span class="eyebrow">01 / This week</span>
+      <p class="mono-sm muted">Data table row</p>
+      <table class="dtable"><tr><th>Origin</th><td>Ethiopia</td></tr></table>
+    </div>
+  </div>
+</section>
+
+<!-- 08 SPACING -->
+<section class="section section--alt">
+  <div class="grid">
+    <div style="grid-column:1 / span 12"><span class="eyebrow">08 / Spacing</span></div>
+    <div style="grid-column:2 / span 8">
+      <div style="display:grid;row-gap:16px">
+        <div style="display:flex;align-items:center;gap:24px"><span class="mono-sm muted" style="width:48px">4</span><div style="height:8px;width:4px;background:var(--accent);border-radius:var(--radius)"></div></div>
+        <div style="display:flex;align-items:center;gap:24px"><span class="mono-sm muted" style="width:48px">8</span><div style="height:8px;width:8px;background:var(--accent);border-radius:var(--radius)"></div></div>
+        <div style="display:flex;align-items:center;gap:24px"><span class="mono-sm muted" style="width:48px">16</span><div style="height:8px;width:16px;background:var(--accent);border-radius:var(--radius)"></div></div>
+        <div style="display:flex;align-items:center;gap:24px"><span class="mono-sm muted" style="width:48px">24</span><div style="height:8px;width:24px;background:var(--accent);border-radius:var(--radius)"></div></div>
+        <div style="display:flex;align-items:center;gap:24px"><span class="mono-sm muted" style="width:48px">32</span><div style="height:8px;width:32px;background:var(--accent);border-radius:var(--radius)"></div></div>
+        <div style="display:flex;align-items:center;gap:24px"><span class="mono-sm muted" style="width:48px">48</span><div style="height:8px;width:48px;background:var(--accent);border-radius:var(--radius)"></div></div>
+        <div style="display:flex;align-items:center;gap:24px"><span class="mono-sm muted" style="width:48px">64</span><div style="height:8px;width:64px;background:var(--accent);border-radius:var(--radius)"></div></div>
+        <div style="display:flex;align-items:center;gap:24px"><span class="mono-sm muted" style="width:48px">96</span><div style="height:8px;width:96px;background:var(--accent);border-radius:var(--radius)"></div></div>
+        <div style="display:flex;align-items:center;gap:24px"><span class="mono-sm muted" style="width:48px">128</span><div style="height:8px;width:128px;background:var(--accent);border-radius:var(--radius)"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="grid">
+    <div style="grid-column:1 / span 12">
+      <div class="footer__bottom" style="border-top:0;margin-top:0">
+        <span class="wordmark">CADENCE</span>
+        <span class="mono-sm" style="color:var(--line)">© 2026 Cadence · <a href="#" style="display:inline">Licenses</a></span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,363 @@
+/* CADENCE — design system implementation.
+   Tokens mirror design-system.md exactly. Do not add values outside it. */
+
+:root {
+  --surface: #FBF8F3;
+  --surface-alt: #F2ECE3;
+  --surface-deep: #2A2420;
+  --ink: #1C1815;
+  --ink-muted: #6E645B;
+  --line: #E2D9CD;
+  --accent: #B0472C;
+
+  --origin-a: #6B7F5C;
+  --origin-b: #8A6A9E;
+  --origin-c: #C08A3E;
+  --origin-d: #4A7B8C;
+
+  --serif: 'Fraunces', Georgia, serif;
+  --sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+
+  /* scale */
+  --s-11: 0.6875rem;
+  --s-12: 0.75rem;
+  --s-14: 0.875rem;
+  --s-16: 1rem;
+  --s-20: 1.25rem;
+  --s-25: 1.563rem;
+  --s-31: 1.953rem;
+  --s-39: 2.441rem;
+  --s-49: 3.052rem;
+
+  --radius: 4px;
+  --pad-section: 128px;
+  --gutter: 32px;
+}
+
+@media (max-width: 1200px) { :root { --pad-section: 96px; } }
+@media (max-width: 900px)  { :root { --pad-section: 64px; } }
+@media (max-width: 600px)  { :root { --pad-section: 48px; --gutter: 24px; } }
+
+*, *::before, *::after { box-sizing: border-box; }
+
+/* 100vw counts the scrollbar, so full-bleed panels overshoot by its width.
+   Clip that remainder — the page must never scroll sideways. */
+html { overflow-x: hidden; }
+
+body {
+  margin: 0;
+  /* Full-bleed sections use 50vw, which exceeds the client width by the
+     scrollbar. Clip it so the page never scrolls sideways. */
+  overflow-x: hidden;
+  background: var(--surface);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: var(--s-16);
+  font-weight: 400;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2 { font-family: var(--serif); font-weight: 500; line-height: 1.1; margin: 0; }
+h3, h4, h5, h6 { font-family: var(--sans); font-weight: 500; line-height: 1.25; margin: 0; }
+h1 { font-size: var(--s-49); letter-spacing: -0.02em; }
+h2 { font-size: var(--s-39); letter-spacing: -0.015em; }
+h3 { font-size: var(--s-25); }
+h4 { font-size: var(--s-20); }
+h5 { font-size: var(--s-16); }
+h6 { font-size: var(--s-14); }
+p { margin: 0 0 16px; max-width: 65ch; }
+
+a { color: var(--ink); text-decoration: none; }
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+hr { border: 0; border-top: 1px solid var(--line); margin: 32px 0; }
+
+/* ---------- layout ---------- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: var(--gutter);
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+.section { padding: var(--pad-section) 0; }
+.section--alt { background: var(--surface-alt); }
+.section--deep { background: var(--surface-deep); color: var(--surface); }
+.section--deep h1, .section--deep h2 { color: var(--surface); }
+/* Distance from the 1280px container's content edge out to the viewport edge:
+   half the leftover width, plus the container gutter. */
+:root { --bleed: calc(max(0px, (100vw - 1280px) / 2) + var(--gutter)); }
+.bleed-left { margin-left: calc(-1 * var(--bleed)); }
+.bleed-right { margin-right: calc(-1 * var(--bleed)); }
+
+/* ---------- mono utilities ---------- */
+.mono, .eyebrow, .val {
+  font-family: var(--mono);
+  font-weight: 400;
+  font-variant-numeric: tabular-nums;
+}
+.eyebrow {
+  font-size: var(--s-11);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-muted);
+  display: block;
+  margin-bottom: 32px;
+}
+.section--deep .eyebrow { color: var(--line); }
+.mono-sm { font-family: var(--mono); font-size: var(--s-11); text-transform: uppercase; letter-spacing: 0.08em; }
+.muted { color: var(--ink-muted); }
+.accent { color: var(--accent); }
+
+.dot {
+  display: inline-block;
+  width: 8px; height: 8px;
+  border-radius: var(--radius);
+  background: var(--hue, var(--accent));
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+/* ---------- buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 24px;
+  border: 1px solid var(--accent);
+  border-radius: var(--radius);
+  background: var(--accent);
+  color: var(--surface);
+  font-family: var(--mono);
+  font-size: var(--s-11);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: background 200ms ease, color 200ms ease;
+}
+.btn:hover { background: transparent; color: var(--accent); }
+.btn--block { width: 100%; height: 56px; }
+.btn:disabled { opacity: 0.4; cursor: not-allowed; }
+.btn--secondary { background: transparent; color: var(--accent); }
+.btn--secondary:hover { background: var(--accent); color: var(--surface); }
+
+.link-text {
+  font-family: var(--mono);
+  font-size: var(--s-11);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  border-bottom: 1px solid var(--accent);
+  padding-bottom: 2px;
+}
+
+/* ---------- image slots ----------
+   No stock photography in this prototype. Each slot names the shot the
+   design system requires, so the brief stays visible in the layout. */
+.imgslot {
+  position: relative;
+  background:
+    linear-gradient(135deg, #EDE4D8 0%, #E3D6C6 55%, #D8C9B6 100%);
+  border-radius: var(--radius);
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  min-height: 200px;
+}
+.imgslot::after {
+  content: attr(data-shot);
+  font-family: var(--mono);
+  font-size: var(--s-11);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #7A6A55;
+  padding: 16px;
+}
+.imgslot--square { aspect-ratio: 1 / 1; }
+.imgslot--45 { aspect-ratio: 4 / 5; }
+.imgslot--219 { aspect-ratio: 21 / 9; }
+
+/* ---------- tasting chart ---------- */
+.chart { display: grid; row-gap: 8px; margin: 24px 0; }
+.chart__row {
+  display: grid;
+  grid-template-columns: 88px 1fr 24px;
+  align-items: center;
+  column-gap: 16px;
+}
+.chart__label {
+  font-family: var(--mono);
+  font-size: var(--s-11);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-muted);
+}
+.chart__track { height: 1px; background: var(--line); position: relative; }
+.chart__bar {
+  position: absolute;
+  inset: 0 auto 0 0;
+  height: 3px;
+  top: -1px;
+  border-radius: var(--radius);
+  background: var(--hue, var(--accent));
+  width: calc(var(--v) / 5 * 100%);
+  transform-origin: left center;
+  transition: transform 600ms ease;
+}
+.chart__val {
+  font-family: var(--mono);
+  font-size: var(--s-11);
+  color: var(--ink-muted);
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.chart--condensed .chart__row { grid-template-columns: 64px 1fr 20px; }
+
+/* ---------- product grid ---------- */
+.pgrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.pcard {
+  display: block;
+  padding: 24px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background: var(--surface);
+  transition: background 200ms ease;
+}
+.pcard:nth-child(3n) { border-right: 0; }
+.pgrid > .pcard:nth-last-child(-n+3) { border-bottom: 0; }
+.pcard:hover { background: var(--surface-alt); }
+.pcard:hover .imgslot { transform: scale(1.02); }
+.pcard .imgslot { transition: transform 300ms ease; min-height: 180px; }
+.pcard__name { font-family: var(--serif); font-size: var(--s-20); font-weight: 500; margin: 12px 0 4px; }
+.pcard__price { font-family: var(--mono); font-size: var(--s-14); }
+
+/* ---------- tables ---------- */
+.dtable { width: 100%; border-collapse: collapse; }
+.dtable th, .dtable td {
+  text-align: left;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--line);
+  font-family: var(--mono);
+  font-size: var(--s-12);
+}
+.dtable th {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: var(--s-11);
+  color: var(--ink-muted);
+  font-weight: 400;
+}
+
+/* ---------- rules ---------- */
+.vrules { display: grid; }
+.vrules > * { padding: 0 32px; border-left: 1px solid var(--line); }
+.vrules > *:first-child { padding-left: 0; border-left: 0; }
+.section--deep .vrules > * { border-color: #4A423C; }
+
+/* ---------- nav ---------- */
+.nav {
+  height: 72px;
+  border-bottom: 1px solid var(--line);
+  background: var(--surface);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+}
+.nav__inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.wordmark { font-family: var(--serif); font-size: 20px; font-weight: 500; letter-spacing: 0.01em; }
+.nav__links { display: flex; gap: 32px; align-items: center; }
+.nav__links a { font-family: var(--mono); font-size: var(--s-11); text-transform: uppercase; letter-spacing: 0.08em; }
+.nav__links a:hover { color: var(--accent); }
+
+/* ---------- footer ---------- */
+.footer { background: var(--surface-deep); color: var(--surface); padding: 96px 0 32px; }
+.footer a { color: var(--line); font-family: var(--mono); font-size: var(--s-11); text-transform: uppercase; letter-spacing: 0.08em; display: block; margin-bottom: 12px; }
+.footer a:hover { color: var(--accent); }
+.footer__bottom {
+  border-top: 1px solid #4A423C;
+  margin-top: 64px;
+  padding-top: 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+/* ---------- forms ---------- */
+.field { margin-bottom: 32px; }
+.field label {
+  display: block;
+  font-family: var(--mono);
+  font-size: var(--s-11);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-muted);
+  margin-bottom: 8px;
+  transition: color 200ms ease;
+}
+.field input, .field select, .field textarea {
+  width: 100%;
+  height: 48px;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  background: transparent;
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: var(--s-16);
+  padding: 0;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+}
+.field textarea { height: auto; padding: 12px 0; resize: vertical; }
+.field input:focus, .field select:focus, .field textarea:focus {
+  outline: none;
+  border-bottom: 2px solid var(--accent);
+}
+.field:focus-within label { color: var(--accent); }
+
+/* ---------- motion ---------- */
+/* Only hide when JS is present to bring it back — otherwise the content
+   below the fold would never appear at all. */
+.js .reveal { opacity: 0; transform: translateY(16px); }
+.js .reveal.is-in { opacity: 1; transform: none; transition: opacity 300ms ease, transform 300ms ease; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+  .reveal { opacity: 1; transform: none; }
+}
+
+/* ---------- responsive ---------- */
+@media (max-width: 900px) {
+  :root { --s-49: 2.25rem; --s-39: 1.875rem; }
+  .pgrid { grid-template-columns: 1fr; }
+  .pcard { border-right: 0; }
+  .nav__links { gap: 16px; }
+  .vrules > * { padding: 24px 0; border-left: 0; border-top: 1px solid var(--line); }
+  .vrules > *:first-child { border-top: 0; padding-top: 0; }
+  .bleed-left, .bleed-right { margin-left: 0; margin-right: 0; }
+}
